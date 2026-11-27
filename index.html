@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07111f">
+  <title>Privacy Myth or Fact? | ITC128 Webinar</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <div class="page-glow page-glow-one" aria-hidden="true"></div>
+  <div class="page-glow page-glow-two" aria-hidden="true"></div>
+
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Privacy Myth or Fact home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" focusable="false">
+            <path d="M20 3.5 34 9v9.2c0 8.6-5.7 14.7-14 18.3C11.7 32.9 6 26.8 6 18.2V9l14-5.5Z"/>
+            <rect x="14" y="17" width="12" height="9" rx="2"/>
+            <path d="M17 17v-2a3 3 0 0 1 6 0v2"/>
+            <circle cx="20" cy="21.5" r="1"/>
+          </svg>
+        </span>
+        <span class="brand-copy">
+          <strong>Privacy Myth or Fact?</strong>
+          <small>ITC128 · Webinar game</small>
+        </span>
+      </a>
+      <div class="topbar-tag">
+        <span class="live-dot" aria-hidden="true"></span>
+        FACILITATOR MODE
+      </div>
+    </header>
+
+    <section class="game-area" aria-live="polite">
+      <div class="game-content" id="game-content">
+        <section class="welcome-screen screen" id="welcome-screen" aria-labelledby="welcome-title">
+          <div class="welcome-icon privacy-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" focusable="false">
+              <path d="M32 5 53 13v14c0 13-8.6 22.1-21 27-12.4-4.9-21-14-21-27V13L32 5Z"/>
+              <rect x="23" y="28" width="18" height="14" rx="3"/>
+              <path d="M27 28v-4a5 5 0 0 1 10 0v4"/>
+              <circle cx="32" cy="34.5" r="1.7"/>
+              <path d="M32 36.2v2"/>
+            </svg>
+          </div>
+          <p class="eyebrow">AUDIENCE CHAT CHALLENGE</p>
+          <h1 id="welcome-title">Privacy <span>Myth</span><br>or Fact?</h1>
+          <p class="welcome-copy">
+            Read each statement aloud. Give your audience a moment to answer
+            <strong>MYTH</strong> or <strong>FACT</strong> in the chat, then select
+            the answer they chose to reveal whether it is correct.
+          </p>
+          <div class="welcome-details">
+            <div class="detail-item">
+              <span class="detail-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M4 5.5h16v11H9l-5 3v-14Z"/><path d="M8 9h8M8 13h5"/></svg>
+              </span>
+              <span><strong>Audience answers in chat</strong><small>They type MYTH or FACT</small></span>
+            </div>
+            <div class="detail-item">
+              <span class="detail-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 3 20 6v5.5c0 5-3.3 8.5-8 9.5-4.7-1-8-4.5-8-9.5V6l8-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+              </span>
+              <span><strong>Facilitator reveals the answer</strong><small>One statement per round</small></span>
+            </div>
+          </div>
+          <button class="primary-button" id="start-button" type="button">
+            Start the game <span aria-hidden="true">→</span>
+          </button>
+        </section>
+
+        <section class="question-screen screen" id="question-screen" aria-labelledby="question-label" hidden>
+          <div class="question-topline">
+            <p class="eyebrow" id="question-label">QUESTION <span id="question-number">01</span></p>
+            <p class="progress-label"><span id="progress-count">1</span> OF 5</p>
+          </div>
+          <div class="progress-track" role="progressbar" aria-label="Game progress" aria-valuemin="0" aria-valuemax="5" aria-valuenow="1" id="progress-track">
+            <span id="progress-fill"></span>
+          </div>
+          <div class="statement-card">
+            <span class="quote-mark" aria-hidden="true">“</span>
+            <p id="statement-text"></p>
+            <span class="quote-mark quote-mark-end" aria-hidden="true">”</span>
+          </div>
+          <div class="chat-prompt">
+            <span class="chat-prompt-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M4 5.5h16v11H9l-5 3v-14Z"/><path d="M8 9h8M8 13h5"/></svg>
+            </span>
+            <span>Ask your audience: <strong>MYTH or FACT?</strong></span>
+          </div>
+          <p class="choose-label">Select the answer from the audience chat</p>
+          <div class="answer-options" role="group" aria-label="Select the audience's answer">
+            <button class="answer-button myth-button" id="myth-button" type="button" data-answer="Myth">
+              <span class="answer-symbol" aria-hidden="true">?</span>
+              <span>MYTH</span>
+            </button>
+            <button class="answer-button fact-button" id="fact-button" type="button" data-answer="Fact">
+              <span class="answer-symbol" aria-hidden="true">✓</span>
+              <span>FACT</span>
+            </button>
+          </div>
+          <p class="selection-hint">Choose only after participants have responded in chat.</p>
+        </section>
+
+        <section class="complete-screen screen" id="complete-screen" aria-labelledby="complete-title" hidden>
+          <div class="complete-icon" aria-hidden="true">
+            <svg viewBox="0 0 64 64" focusable="false">
+              <circle cx="32" cy="32" r="24"/>
+              <path d="m20 32 8 8 16-17"/>
+            </svg>
+          </div>
+          <p class="eyebrow">GAME COMPLETE</p>
+          <h2 id="complete-title">Great job, everyone!</h2>
+          <p class="completion-copy">You completed all five privacy statements.</p>
+          <div class="score-card">
+            <span class="score-number" id="score-number">0/5</span>
+            <span class="score-caption">audience answers correct</span>
+          </div>
+          <p class="completion-note">Thank your audience for taking part and thinking carefully about privacy.</p>
+          <button class="primary-button" id="restart-button" type="button">
+            Play again <span aria-hidden="true">↻</span>
+          </button>
+        </section>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span class="footer-shield" aria-hidden="true">
+        <svg viewBox="0 0 24 24"><path d="M12 3 20 6v5.5c0 5-3.3 8.5-8 9.5-4.7-1-8-4.5-8-9.5V6l8-3Z"/><path d="m9 12 2 2 4-4"/></svg>
+      </span>
+      <span>Think before you share. Protect personal information.</span>
+      <span class="footer-course">ITC128</span>
+    </footer>
+  </main>
+
+  <div class="feedback-backdrop" id="feedback-backdrop" hidden>
+    <section class="feedback-dialog" id="feedback-dialog" role="dialog" aria-modal="true" aria-labelledby="feedback-title" aria-describedby="feedback-explanation">
+      <div class="result-icon" id="result-icon" aria-hidden="true"></div>
+      <p class="eyebrow result-eyebrow" id="result-eyebrow"></p>
+      <h2 id="feedback-title" tabindex="-1"></h2>
+      <div class="answer-reveal">
+        <span>Correct answer</span>
+        <strong id="correct-answer"></strong>
+      </div>
+      <p class="feedback-explanation" id="feedback-explanation"></p>
+      <button class="primary-button next-button" id="next-button" type="button">
+        Next statement <span aria-hidden="true">→</span>
+      </button>
+    </section>
+  </div>
+</body>
+</html>
